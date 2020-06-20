@@ -1,0 +1,11 @@
+---
+title: Following
+layout: base.njk
+permalink: /{{ title | lower }}/
+---
+
+<ul>
+{%- for follow in connections.following %}
+  <li class="follower">{{ follow }}</li>
+{%- endfor %}
+</ul>

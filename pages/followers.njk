@@ -1,0 +1,11 @@
+---
+title: Followers
+layout: base.njk
+permalink: /{{ title | lower }}/
+---
+
+<ul>
+{%- for follower in connections.followers %}
+  <li class="follower">{{ follower | first }}{{ loop.index }}</li>
+{%- endfor %}
+</ul>
