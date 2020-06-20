@@ -1,0 +1,20 @@
+---
+title: Home
+layout: base.njk
+---
+
+<section class="posts">
+  {%- for photo in media.photos %}
+    <div class="post">
+      <img src="{{ photo.path }}" loading="lazy" class="image">
+      <div class="info">
+        <p>{{ photo.caption }}</p>
+        <small>
+          <time datetime="{{ photo.taken_at | htmlDateString }}">{{ photo.taken_at | readableDate}}</time>
+          <br>
+          {{ photo.location }}
+        </small>
+      </div>
+    </div>
+  {%- endfor %}
+</section>

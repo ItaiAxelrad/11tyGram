@@ -1,0 +1,13 @@
+---
+title: Likes
+layout: base.njk
+---
+
+<ul>
+  {%- for like in likes.media_likes %}
+    <li class="like">
+      ♥ <small>{{ like[1] }} liked a post on <time datetime="{{ like[0] | htmlDateString }}">{{ like[0] | readableDate}}</time>
+      </small>
+    </li>
+  {%- endfor %}
+</ul>

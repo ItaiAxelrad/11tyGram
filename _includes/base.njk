@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ profile.name }}</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+    <meta name="description" content="{{ profile.biography }}">
+    <meta
+      name="keywords"
+      content="Itai, Eden, Axelrad, Climbing, Bouldering, California, Colorado, blog, post, twins"
+/>
+    <meta name="theme-color" content="#ffffff"/>
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta name="apple-mobile-web-app-title" content="blog"/>
+    <!-- Style -->
+    <link href="/icon.png" rel="icon" type="image/png"/>
+    <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
+
+  </head>
+  <body>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/comments">Comments</a>
+      <a href="/likes">Likes</a>
+    </nav>
+
+    <h2>{{- profile.name }} ({{- profile.username }})</h2>
+    <p class="stats">
+      <strong>{{ media.photos | length }}</strong>
+      <a href="/">posts</a> &bull;
+      <strong>{{ likes.media_likes | length }}</strong>
+      <a href="/likes">likes</a> &bull;
+      <strong>{{ comments.media_comments | length }}</strong>
+      <a href="/comments">comments</a> &bull;
+      <strong>{{ connections.followers | length }}</strong> followers &bull;
+      <strong>{{ connections.following | length }}</strong> following
+    </p>
+    <p>{{ profile.biography }}</p>
+    <p>
+      <a href="{{ profile.website | url }}">{{ profile.website }}</a>
+    </p>
+    <hr><br>
+
+    <main>
+      {{ content | safe }}
+    </main>
+
+    <footer>
+      <small>&copy; {{ profile.name }}</small>
+    </footer>
+
+  </body>
+</html>

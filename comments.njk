@@ -1,0 +1,12 @@
+---
+title: Comments
+layout: base.njk
+---
+
+{%- for comment in comments.media_comments %}
+  <div class="comment">
+    <small>{{ comment[2] }} commented on <time datetime="{{ comment[0] | htmlDateString }}">{{ comment[0] | readableDate}}</time>
+    </small>
+    <blockquote>{{ comment[1] }}</blockquote>
+  </div>
+{%- endfor %}
