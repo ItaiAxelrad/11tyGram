@@ -4,8 +4,10 @@ layout: base.njk
 permalink: /{{ title | lower }}/
 ---
 
+{# <p>{{ connections.following[0] }}</p> #}
+
 <ul>
-{%- for follow in connections.following %}
+{% for follow in connections.following %}
   <li class="follower">{{ follow }}</li>
-{%- endfor %}
+{% endfor %}
 </ul>

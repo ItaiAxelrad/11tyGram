@@ -4,7 +4,7 @@ module.exports = function(eleventyConfig) {
   // set deep merge to true
   eleventyConfig.setDataDeepMerge(true);
   // pass media through
-  eleventyConfig.addPassthroughCopy("icon.png");
+  eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("styles");
   eleventyConfig.addPassthroughCopy("photos");
   eleventyConfig.addPassthroughCopy("videos");

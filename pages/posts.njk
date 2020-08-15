@@ -9,18 +9,14 @@ pagination:
   alias: photos
 ---
 
-<main>
-
   {%- for item in pagination.items %}
     <div class="post">
       <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(12) }}">
       <div class="caption">
           <p>{{ item.caption }}</p>
-          <time datetime="{{ taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
+          <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
           <br>
           <address>{{ item.location }}</address>
       </div>
     </div>
   {%- endfor %}
-
-</main>

@@ -4,10 +4,28 @@ layout: base.njk
 permalink: index.html
 ---
 
-<section class="posts">
+<header>
+  <img src="/images/avatar.jpg" class="avatar">
+    <div>
+      <h1>{{- profile.username }}</h1>
+      <nav>
+        <a href="/"><strong>{{ media.photos | length }}</strong> posts</a>
+        <a href="/followers"><strong>{{ connections.followers | length }}</strong> followers</a>
+        <a href="/following"><strong>{{ connections.following | length }}</strong> following</a>
+        {# <a href="/likes"><strong>{{ likes.media_likes | length }}</strong> likes</a>
+        <a href="/comments"><strong>{{ comments.media_comments | length }}</strong> comments</a>  #}
+      </nav>
+      <p><strong>{{- profile.name }}</strong><br>
+      {{ profile.biography }}<br>
+      <a href="{{ profile.website | url }}">{{ profile.website }}</a>
+      </p>
+    </div>
+</header>
+
+<article class="posts">
   {%- for photo in media.photos %}
   <a href="/posts/{{ loop.index }}/">
       <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(12) }}">
     </a>
   {%- endfor %}
-</section>
+</article>

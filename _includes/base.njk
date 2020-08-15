@@ -19,31 +19,16 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
     <meta name="apple-mobile-web-app-title" content="blog"/>
     <!-- Style -->
-    <link href="icon.png" rel="icon" type="image/png"/>
+    <link href="/images/icon.png" rel="icon" type="image/png"/>
     <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
 
   </head>
   <body>
-
-    <h1>{{- profile.name }}</h1>
-    <h2>&#64;{{- profile.username }}</h2>
-    <nav>
-      <strong>{{ media.photos | length }}</strong>
-      <a href="/">posts</a> &bull;
-      <strong>{{ likes.media_likes | length }}</strong>
-      <a href="/likes">likes</a> &bull;
-      <strong>{{ comments.media_comments | length }}</strong>
-      <a href="/comments">comments</a> &bull;
-      <strong>{{ connections.followers | length }}</strong> 
-      <a href="/followers">followers</a> &bull;
-      <strong>{{ connections.following | length }}</strong>
-      <a href="/following">following</a>
-    </nav>
-    <p>{{ profile.biography }}</p>
-    <p>
-      <a href="{{ profile.website | url }}">{{ profile.website }}</a>
-    </p>
-    <hr><br>
+  <nav class="banner">
+  <div class="banner-links">
+  <a href="/" class="logo">11tyGram</a>
+  </div>
+  </nav>
 
     <main>
       {{ content | safe }}
