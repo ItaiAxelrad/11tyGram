@@ -5,7 +5,7 @@ permalink: /{{ title | lower }}/
 ---
 
 <ul>
-{%- for follower in connections.followers %}
+{%- for follower in connections.followers[1] %}
   <li class="follower">{{ follower | first }}{{ loop.index }}</li>
 {%- endfor %}
 </ul>

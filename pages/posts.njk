@@ -1,0 +1,26 @@
+---
+title: Pages
+layout: base.njk
+eleventyExcludeFromCollections: true
+permalink: /posts/{{ pagination.pageNumber + 1 }}/index.html
+pagination:
+  data: media.photos
+  size: 1
+  alias: photos
+---
+
+<main>
+
+  {%- for item in pagination.items %}
+    <div class="post">
+      <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(12) }}">
+      <div class="caption">
+          <p>{{ item.caption }}</p>
+          <time datetime="{{ taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
+          <br>
+          <address>{{ item.location }}</address>
+      </div>
+    </div>
+  {%- endfor %}
+
+</main>

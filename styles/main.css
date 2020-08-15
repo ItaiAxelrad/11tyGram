@@ -18,11 +18,21 @@ body {
   max-width: 800px;
 }
 
+footer {
+  margin-block-start: 1rem;
+  text-align: center;
+}
+
 hr {
   margin: 1rem 0;
   border: none;
   background: var(--gray);
   height: 1px;
+}
+
+time,
+address {
+  font-style: normal;
 }
 
 li {
@@ -37,8 +47,10 @@ li {
   justify-content: center;
 }
 
-.post .info {
-  padding: 0 1rem 0.5rem 1rem;
+.post {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
 }
 
 .comment {
@@ -58,7 +70,11 @@ blockquote {
 
 img {
   display: block;
+  height: auto;
+  width: 100%;
+}
+
+.thumbnail {
   object-fit: cover;
   height: 200px;
-  width: 100%;
 }
