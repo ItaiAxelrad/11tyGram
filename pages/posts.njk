@@ -11,7 +11,7 @@ pagination:
 
   {%- for item in pagination.items %}
     <div class="post">
-      <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(12) }}">
+      <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(20, true, "") }}">
       <div class="caption">
           <p>{{ item.caption }}</p>
           <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>

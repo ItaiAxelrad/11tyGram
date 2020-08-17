@@ -3,7 +3,7 @@
   --dark: hsl(0, 0%, 15%);
   --gray: hsl(0, 0%, 86%);
   --light: hsl(0, 0%, 100%);
-  --color: hsl(204, 100%, 48%);
+  --color: hsl(204, 100%, 40%);
   --width: 935px;
 }
 
@@ -136,6 +136,7 @@ img {
 
 .banner-links {
   display: flex;
+  justify-content: space-between;
   margin: 0 auto;
   width: var(--width);
 }
@@ -144,4 +145,12 @@ img {
   font-family: cursive;
   font-weight: bold;
   font-size: 1.25rem;
+}
+
+.icon {
+  color: currentColor;
+  display: inline-block;
+  vertical-align: bottom;
+  height: 1.25rem;
+  width: 1.25rem;
 }

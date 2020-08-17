@@ -1,13 +1,15 @@
 const { DateTime } = require('luxon');
+const markdownIt = require('markdown-it');
+const hashtag = require('markdown-it-hashtag');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // set deep merge to true
   eleventyConfig.setDataDeepMerge(true);
   // pass media through
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("styles");
-  eleventyConfig.addPassthroughCopy("photos");
-  eleventyConfig.addPassthroughCopy("videos");
+  eleventyConfig.addPassthroughCopy('images');
+  eleventyConfig.addPassthroughCopy('styles');
+  eleventyConfig.addPassthroughCopy('photos');
+  eleventyConfig.addPassthroughCopy('videos');
 
   // parse datetime to readable
   eleventyConfig.addFilter('readableDate', (dateObj) => {
@@ -21,24 +23,28 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
-  return {
-    templateFormats: [
-      "md",
-      "njk",
-      "html",
-      "liquid"
-    ],
+  /* Markdown Overrides */
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+    typographer: false,
+  }).use(hashtag);
+  eleventyConfig.setLibrary('md', markdownLibrary);
 
-    markdownTemplateEngine: "liquid",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
+  return {
+    templateFormats: ['md', 'njk', 'html', 'liquid'],
+
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
 
     // These are all optional, defaults are shown:
     dir: {
-      input: ".",
-      includes: "_includes",
-      data: "JSON",
-      output: "_site"
-    }
+      input: '.',
+      includes: '_includes',
+      data: 'JSON',
+      output: '_site',
+    },
   };
 };

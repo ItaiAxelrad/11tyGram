@@ -25,7 +25,7 @@ permalink: index.html
 <article class="posts">
   {%- for photo in media.photos %}
   <a href="/posts/{{ loop.index }}/">
-      <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(12) }}">
+      <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(20, true, "") }}">
     </a>
   {%- endfor %}
 </article>
