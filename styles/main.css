@@ -55,6 +55,12 @@ nav a {
   border-block-start: 1px solid var(--gray);
 }
 
+.postNav {
+  justify-content: space-between;
+  margin-block-start: 2rem;
+  padding: 1rem;
+}
+
 footer {
   margin: 1rem auto;
   text-align: center;
@@ -114,11 +120,23 @@ li {
   display: flex;
   align-items: center;
   border-block-end: 1px solid var(--gray);
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
 }
 
 .caption {
   padding: 0 1rem 0 2rem;
+}
+
+.media {
+  bottom: 0;
+  margin: 1rem 0;
+  padding: 0 1rem 0 2rem;
+}
+
+.media a {
+  display: block;
+  color: currentColor;
+  font-size: smaller;
 }
 
 .comment {
@@ -216,4 +234,14 @@ img {
   vertical-align: bottom;
   height: 1.25rem;
   width: 1.25rem;
+}
+
+@media (max-width: 935px) {
+  .thumbnail {
+    width: 200px;
+    height: 200px;
+  }
+  .post {
+    display: block;
+  }
 }

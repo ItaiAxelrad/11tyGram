@@ -18,7 +18,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ profile.username }}</title>
-  <subtitle>{{ profile.biography }}</subtitle>
+  {# <subtitle>{{ profile.biography }}</subtitle>
   <link href="{{ metadata.feedUrl }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
   <updated>{{ media.photos | rssLastUpdatedDate }}</updated>
@@ -36,5 +36,5 @@
     <id>{{ absolutephotoUrl }}</id>
     <content type="html">{{ photo.caption | htmlToAbsoluteUrls(absolutephotoUrl) }}</content>
   </entry>
-  {%- endfor %}
+  {%- endfor %} #}
 </feed>

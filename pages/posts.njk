@@ -17,13 +17,36 @@ pagination:
         <img src="/images/avatar.jpg" class="avatar-small">
           <div>
           <strong>{{- profile.username }}</strong> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a>
-                  <br><small>{{ item.location }}</small>
+            <br><small>{% if item.location %}{{ item.location }}{% endif %}</small>
           </div> 
         </div>
         <div class="caption">
           <p>{{ item.caption }}</p>
           <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
         </div>
+        <div class="media">
+          <a href="/likes/page-1"><strong>{{ likes.media_likes | length }}</strong> likes</a>
+          <a href="/comments/page-1"><strong>{{ comments.media_comments | length }}</strong> comments</a> 
+        </div>
       </div>
     </div>
   {%- endfor %}
+
+
+<nav class="postNav">
+  <div class="previous-page">
+    {%- if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">
+       &larr; Previous Post</a>
+    {%- else %}
+      <a href="/">&larr; Go Back</a>
+    {%- endif %}
+  </div>
+  <div class="next-page">
+    {%- if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">Next Post &rarr;
+  </a>
+      {%- else %}
+      {%- endif %}
+    </div>
+  </nav>

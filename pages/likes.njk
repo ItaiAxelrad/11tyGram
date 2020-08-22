@@ -1,14 +1,36 @@
 ---
 title: Likes
 layout: base.njk
-permalink: /{{ title | lower }}/
+permalink: "likes/page-{{ pagination.pageNumber + 1}}/index.html"
+pagination:
+  data: likes.media_likes
+  size: 250
+  alias: likes
 ---
 
-<ul>
-  {%- for like in likes.media_likes %}
-    <li class="like">
-      ♥ <small>{{ like[1] }} liked a post on <time datetime="{{ like[0] | htmlDateString }}">{{ like[0] | readableDate}}</time>
-      </small>
-    </li>
-  {%- endfor %}
-</ul>
+<div class="{{ title | lower }}">
+{%- for like in likes %}
+  <span class="like">
+    ♥ <small>@{{ like[1] }} liked a post on <time datetime="{{ like[0] | htmlDateString }}">{{ like[0] | readableDate}}</time>
+    </small>
+  </span>
+{%- endfor %}
+<div>
+
+<nav class="pageNav">
+  <div class="previous-page">
+    {%- if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">
+       &larr; Previous Page</a>
+    {%- else %}
+      <a href="/">&larr; Go Back</a>
+    {%- endif %}
+  </div>
+  <div class="next-page">
+    {%- if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">Next Page &rarr;
+  </a>
+      {%- else %}
+      {%- endif %}
+    </div>
+  </nav>
