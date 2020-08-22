@@ -1,11 +1,33 @@
 ---
 title: Followers
 layout: base.njk
-permalink: /{{ title | lower }}/
+permalink: "followers/page-{{ pagination.pageNumber + 1 }}/index.html"
+pagination:
+  data: connections.followers
+  size: 100
+  alias: followers
 ---
 
-<ul>
-{%- for follower in connections.followers[1] %}
-  <li class="follower">{{ follower | first }}{{ loop.index }}</li>
-{%- endfor %}
-</ul>
+<div id="{{ title | lower }}">
+{%- for follower in followers %}
+  <span>@{{ follower }}</span>,
+{% endfor -%}
+</div>
+
+<nav class="pageNav">
+  <div class="previous-page">
+    {%- if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}">
+       &lt; Previous Page</a>
+    {%- else %}
+      <a href="/">&lt; Go Back</a>
+    {%- endif %}
+  </div>
+  <div class="next-page">
+    {%- if pagination.href.next %}
+      <a href="{{ pagination.href.next }}">Next Page &gt;
+  </a>
+      {%- else %}
+      {%- endif %}
+    </div>
+  </nav>

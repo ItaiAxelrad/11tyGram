@@ -10,8 +10,8 @@ permalink: index.html
       <h1>{{- profile.username }}</h1>
       <nav>
         <a href="/"><strong>{{ media.photos | length }}</strong> posts</a>
-        <a href="/followers"><strong>{{ connections.followers | length }}</strong> followers</a>
-        <a href="/following"><strong>{{ connections.following | length }}</strong> following</a>
+        <a href="/followers/page-1"><strong>{{ connections.followers | length }}</strong> followers</a>
+        <a href="/following/page-1"><strong>{{ connections.following | length }}</strong> following</a>
         {# <a href="/likes"><strong>{{ likes.media_likes | length }}</strong> likes</a>
         <a href="/comments"><strong>{{ comments.media_comments | length }}</strong> comments</a>  #}
       </nav>

@@ -23,6 +23,11 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
+  eleventyConfig.addCollection("test", function(collectionApi) {
+    // Also accepts an array of globs!
+    return collectionApi.getFilteredByGlob("JSON/connections.json");
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
