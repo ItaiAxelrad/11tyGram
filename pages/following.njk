@@ -4,7 +4,7 @@ layout: base.njk
 permalink: "following/page-{{ pagination.pageNumber + 1}}/index.html"
 pagination:
   data: connections.following
-  size: 1000
+  size: 200
   alias: following
 ---
 
@@ -18,14 +18,14 @@ pagination:
   <div class="previous-page">
     {%- if pagination.href.previous %}
       <a href="{{ pagination.href.previous }}">
-       &lt; Previous Page</a>
+       &larr; Previous Page</a>
     {%- else %}
-      <a href="/">&lt; Go Back</a>
+      <a href="/">&larr; Go Back</a>
     {%- endif %}
   </div>
   <div class="next-page">
     {%- if pagination.href.next %}
-      <a href="{{ pagination.href.next }}">Next Page &gt;
+      <a href="{{ pagination.href.next }}">Next Page &rarr;
   </a>
       {%- else %}
       {%- endif %}

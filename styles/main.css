@@ -1,9 +1,10 @@
 :root {
   --bg: hsl(0, 0%, 98%);
   --dark: hsl(0, 0%, 15%);
+  --dark-gray: hsl(0, 0%, 56%);
   --gray: hsl(0, 0%, 86%);
   --light: hsl(0, 0%, 100%);
-  --color: hsl(204, 100%, 40%);
+  --color: hsl(204, 100%, 48%);
   --width: 935px;
 }
 
@@ -43,7 +44,6 @@ nav {
 }
 
 nav a {
-  text-decoration: none;
   color: currentColor;
   padding-inline-end: 1rem;
 }
@@ -56,7 +56,7 @@ nav a {
 }
 
 footer {
-  margin-block-start: 1rem;
+  margin: 1rem auto;
   text-align: center;
 }
 
@@ -66,6 +66,7 @@ p {
 
 a {
   color: var(--color);
+  text-decoration: none;
 }
 
 h1 {
@@ -75,6 +76,9 @@ h1 {
 time,
 address {
   font-style: normal;
+  color: var(--dark-gray);
+  text-transform: uppercase;
+  font-size: smaller;
 }
 
 li {
@@ -93,7 +97,28 @@ li {
 .post {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1rem;
+  border: 1px solid var(--gray);
+  margin-block-start: 1rem;
+}
+
+.post-info {
+  background: var(--light);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  border-block-end: 1px solid var(--gray);
+  padding: 1rem .5rem;
+}
+
+.caption {
+  padding: 0 1rem 0 2rem;
 }
 
 .comment {
@@ -135,6 +160,16 @@ img {
   border-radius: 50%;
 }
 
+.avatar-small {
+  display: inline-block;
+  align-self: center;
+  justify-self: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin: 0 1rem;
+}
+
 .banner {
   position: sticky;
   top: 0;
@@ -152,6 +187,21 @@ img {
   justify-content: space-between;
   margin: 0 auto;
   width: var(--width);
+}
+
+.user-name {
+  display: inline;
+}
+
+.btn {
+  display: inline-block;
+  color: var(--light);
+  font-size: 90%;
+  font-weight: 600;
+  background: var(--color);
+  border-radius: 4px;
+  margin: 0 2rem;
+  padding: 5px 9px;
 }
 
 .logo {

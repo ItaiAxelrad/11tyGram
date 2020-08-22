@@ -7,7 +7,9 @@ permalink: index.html
 <header>
   <img src="/images/avatar.jpg" class="avatar">
     <div>
-      <h1>{{- profile.username }}</h1>
+      <div class="user">
+        <h1 class="user-name">{{- profile.username }}</h1><a href="/feed.xml" class="btn">Follow</a>
+      </div>
       <nav>
         <a href="/"><strong>{{ media.photos | length }}</strong> posts</a>
         <a href="/followers/page-1"><strong>{{ connections.followers | length }}</strong> followers</a>

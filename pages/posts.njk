@@ -12,11 +12,18 @@ pagination:
   {%- for item in pagination.items %}
     <div class="post">
       <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(20, true, "") }}">
-      <div class="caption">
+      <div class="post-info">
+        <div class="user-info">
+        <img src="/images/avatar.jpg" class="avatar-small">
+          <div>
+          <strong>{{- profile.username }}</strong> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a>
+                  <br><small>{{ item.location }}</small>
+          </div> 
+        </div>
+        <div class="caption">
           <p>{{ item.caption }}</p>
           <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
-          <br>
-          <address>{{ item.location }}</address>
+        </div>
       </div>
     </div>
   {%- endfor %}

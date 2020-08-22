@@ -1,0 +1,40 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "11tyGram",
+    "subtitle": "A static site version of IG",
+    "url": "https://11tygram.netlify.app/",
+    "feedUrl": "https://11tygram.netlify.app/feed.xml",
+    "author": {
+      "name": "Itai Axelrad",
+      "email": "me@example.com"
+    }
+  }
+}
+---
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ profile.username }}</title>
+  <subtitle>{{ profile.biography }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ media.photos | rssLastUpdatedDate }}</updated>
+  <id>{{ metadata.url }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for photo in media.photos %}
+  {% set absolutephotoUrl %}{{ photo.url | url | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ profile.username }}</title>
+    <link href="{{ absolutephotoUrl }}"/>
+    <updated>{{ photo.taken_at | rssDate }}</updated>
+    <id>{{ absolutephotoUrl }}</id>
+    <content type="html">{{ photo.caption | htmlToAbsoluteUrls(absolutephotoUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

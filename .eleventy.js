@@ -1,8 +1,13 @@
 const { DateTime } = require('luxon');
 const markdownIt = require('markdown-it');
 const hashtag = require('markdown-it-hashtag');
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
+
+  // add plugin
+  eleventyConfig.addPlugin(pluginRss);
+
   // set deep merge to true
   eleventyConfig.setDataDeepMerge(true);
   // pass media through
