@@ -1,17 +1,22 @@
 ---
 title: Followers
 layout: base.njk
+eleventyExcludeFromCollections: true
 permalink: "followers/page-{{ pagination.pageNumber + 1 }}/index.html"
 pagination:
   data: connections.followers
-  size: 200
+  size: 120
   alias: followers
 ---
 
 <div id="{{ title | lower }}">
+<ul class="{{ title | lower }}">
 {%- for follower in followers %}
-  <span>@{{ follower }}</span>,
+  <li class="follower">
+    <a href="https://www.instagram.com/{{ follower }}/?hl=en" rel="noopener">@{{ follower }}</a>
+  </li>
 {% endfor -%}
+</ul>
 </div>
 
 <nav class="pageNav">

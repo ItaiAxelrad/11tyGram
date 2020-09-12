@@ -1,17 +1,22 @@
 ---
 title: Following
 layout: base.njk
+eleventyExcludeFromCollections: true
 permalink: "following/page-{{ pagination.pageNumber + 1}}/index.html"
 pagination:
   data: connections.following
-  size: 200
+  size: 120
   alias: following
 ---
 
 <div id="{{ title | lower }}">
-{%- for follow in following %}
-  <span>@{{ follow }}</span>,
-{% endfor -%}
+  <ul class="{{ title | lower }}">
+  {%- for follow in following %}
+    <li class="follow">
+      <a href="https://www.instagram.com/{{ follow }}/?hl=en" rel="noopener">@{{ follow }}</a>
+    </li>
+  {% endfor -%}
+  </ul>
 </div>
 
 <nav class="pageNav">

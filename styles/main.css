@@ -37,6 +37,10 @@ header {
   padding: 1rem 0;
 }
 
+header a {
+  color: #00376b;
+}
+
 nav {
   display: flex;
   flex-flow: row wrap;
@@ -100,6 +104,37 @@ li {
   margin-top: 2rem;
 }
 
+
+/* image overlay */
+.post-link {
+  position: relative;
+}
+.post-link .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .2s ease;
+}
+.post-link:hover .overlay {
+  cursor: pointer;
+  opacity: 1;
+  background: rgba(0, 0, 0, .5);
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: var(--light);
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .post {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -160,14 +195,20 @@ img {
   width: 100%;
 }
 
+video {
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+
+.image {
+  max-height: 600px;
+  object-fit: contain;
+}
+
 .thumbnail {
   object-fit: cover;
   height: 300px;
-}
-
-.thumbnail:hover {
-  filter: brightness(0.6);
-  z-index: -1;
 }
 
 .avatar {
@@ -234,6 +275,19 @@ img {
   vertical-align: bottom;
   height: 1.25rem;
   width: 1.25rem;
+}
+
+.following,
+.followers {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+}
+.follow,
+.follower {
+  max-width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 @media (max-width: 935px) {

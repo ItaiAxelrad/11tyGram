@@ -1,16 +1,22 @@
 ---
-title: Pages
+title: Direct
 layout: base.njk
-permalink: /posts/{{ pagination.pageNumber + 1 }}/index.html
+eleventyExcludeFromCollections: true
+permalink: /direct/{{ pagination.pageNumber + 1 }}/index.html
 pagination:
-  data: media.photos
+  data: media.direct
   size: 1
-  alias: photos
+  alias: direct
 ---
 
   {%- for item in pagination.items %}
     <div class="post">
       <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(20, true, "") }}">
+      <video controls width="100%" class="video">
+          <source src="/{{ item.path }}" type="video/webm">
+          Sorry, your browser doesn't support embedded direct.
+      </video>
+
       <div class="post-info">
         <div class="user-info">
         <img src="/images/avatar.jpg" class="avatar-small">

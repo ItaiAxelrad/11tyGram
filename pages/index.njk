@@ -23,9 +23,28 @@ permalink: index.html
 </header>
 
 <article class="posts">
-  {%- for photo in media.photos %}
-  <a href="/posts/{{ loop.index }}/">
-      <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(20, true, "") }}">
+
+  {# video posts #}
+  {%- for video in media.videos %}
+    <a href="/videos/{{ loop.index }}/" class="post-link">
+      <video preload="metadata" height="100%" class="thumbnail">
+          <source src="/{{ video.path }}" type="video/webm">
+          Sorry, your browser doesn't support embedded videos.
+      </video>
+      <div class="overlay">
+        <div class="overlay-text">{{ video.taken_at | readableDate }}</div>
+      </div>
     </a>
   {%- endfor %}
+
+  {# photo posts #}
+  {%- for photo in media.photos %}
+  <a href="/posts/{{ loop.index }}/" class="post-link">
+      <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(20, true, "") }}">
+      <div class="overlay">
+        <div class="overlay-text">{{ photo.taken_at | readableDate }}</div>
+      </div>
+  </a>
+  {%- endfor %}
+
 </article>

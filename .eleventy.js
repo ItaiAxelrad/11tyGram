@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('styles');
   eleventyConfig.addPassthroughCopy('photos');
   eleventyConfig.addPassthroughCopy('videos');
+  eleventyConfig.addPassthroughCopy('direct');
 
   // parse datetime to readable
   eleventyConfig.addFilter('readableDate', (dateObj) => {
@@ -28,9 +29,9 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
-  eleventyConfig.addCollection("test", function(collectionApi) {
-    // Also accepts an array of globs!
-    return collectionApi.getFilteredByGlob("JSON/connections.json");
+  // parse datetime to full year
+  eleventyConfig.addFilter('fullYear', (dateObj) => {
+    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy');
   });
 
   /* Markdown Overrides */
@@ -44,7 +45,6 @@ module.exports = function (eleventyConfig) {
 
   return {
     templateFormats: ['md', 'njk', 'html', 'liquid'],
-
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
