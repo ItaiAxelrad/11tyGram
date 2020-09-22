@@ -98,12 +98,11 @@ li {
 .posts {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   grid-template-rows: auto;
   justify-content: center;
   margin-top: 2rem;
 }
-
 
 /* image overlay */
 .post-link {
@@ -144,6 +143,9 @@ li {
 
 .post-info {
   background: var(--light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .user {
@@ -160,6 +162,7 @@ li {
 
 .caption {
   padding: 0 1rem 0 2rem;
+  flex-grow: 1;
 }
 
 .media {
@@ -291,11 +294,33 @@ video {
 }
 
 @media (max-width: 935px) {
-  .thumbnail {
+  /* .thumbnail {
     width: 200px;
     height: 200px;
   }
   .post {
     display: block;
-  }
+  } */
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0.5rem 1.5rem;
+  border-block-start: 1px solid var(--gray);
+}
+
+input[type="text"] {
+  border: none;
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+}
+
+button[type="submit"] {
+  border: none;
+  background: none;
+  color: var(--color);
+  cursor: pointer;
 }

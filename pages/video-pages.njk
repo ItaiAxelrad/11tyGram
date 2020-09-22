@@ -1,16 +1,21 @@
 ---
-title: Pages
+title: Videos
 layout: base.njk
-permalink: /posts/{{ pagination.pageNumber + 1 }}/index.html
+permalink: /videos/{{ pagination.pageNumber + 1 }}/index.html
 pagination:
-  data: media.photos
+  data: media.videos
   size: 1
-  alias: photos
+  alias: videos
 ---
 
   {%- for item in pagination.items %}
     <div class="post">
-      <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(20, true, "") }}">
+
+      <video controls preload="metadata" width="100%" class="video">
+          <source src="/{{ item.path }}" type="video/webm">
+          Sorry, your browser doesn't support embedded videos.
+      </video>
+
       <div class="post-info">
         <div class="user-info">
         <img src="/images/avatar.jpg" class="avatar-small">
@@ -19,14 +24,23 @@ pagination:
             <br><small>{% if item.location %}{{ item.location }}{% endif %}</small>
           </div> 
         </div>
+
         <div class="caption">
           <p>{{ item.caption }}</p>
           <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
         </div>
+
         <div class="media">
           <a href="/likes/page-1"><strong>{{ likes.media_likes | length }}</strong> likes</a>
           <a href="/comments/page-1"><strong>{{ comments.media_comments | length }}</strong> comments</a> 
         </div>
+
+        {# contact form #}
+        <form name="contact" method="POST" data-netlify="true">
+          <input id="comment" type="text" name="comment" placeholder="Add a comment..." required="">
+          <button type="submit" class="button-post">Post</button>
+        </form>
+
       </div>
     </div>
   {%- endfor %}

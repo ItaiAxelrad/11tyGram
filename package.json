@@ -1,9 +1,11 @@
 {
-  "name": "insta",
+  "name": "11tyGram",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
+    "dev": "eleventy --serve",
+    "debug": "DEBUG=Eleventy* eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

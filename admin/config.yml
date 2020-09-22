@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+  squash_merges: true
+site_url: http://11tygram.netlify.app/
+display_url: http://11tygram.netlify.app/
+logo_url: http://11tygram.netlify.app/images/instagram.svg
+publish_mode: editorial_workflow # enable drafts
+show_preview_links: true # show post / page live preview 
+media_folder: 'images' # Media files will be stored in the repo under images/uploads
+collections:
+  # Photo Posts
+  - name: 'photos' # Used in routes, e.g., /admin/collections/blog
+    identifier_field: name
+    description: 'A collection of all photo posts'
+    label: 'Photos' # Used in the UI
+    label_singular: 'Photo' # Used in the UI
+    folder: 'photos' # The path to the folder where the documents are stored
+    path: '{{year}}{{month}}/'
+    media_folder: 'photos'
+    public_folder: 'photos'
+    create: true # Allow users to create new documents in this collection
+    slug: 'index.md' # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: 'posts/{{year}}-{{month}}-{{day}}-{{title}}/index.html' # preview location
+    preview_path_date_field: 'date'
+    summary: '{{fields.title}} - {{fields.author}} - {{fields.date}}'
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Taken At',
+          name: 'taken_at',
+          widget: 'datetime',
+          default: Created,
+          dateFormat: 'DD.MM.YYYY',
+          format: 'MMM Dd YY'
+        }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: True }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - { label: 'Media', name: 'media', widget: 'image' }
+      - { label: 'Tags', name: 'tags', widget: 'list', default: ['post'] }
+      - { label: 'Caption', name: 'caption', widget: 'markdown' }

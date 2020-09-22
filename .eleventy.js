@@ -29,11 +29,6 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
-  // parse datetime to full year
-  eleventyConfig.addFilter('fullYear', (dateObj) => {
-    return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy');
-  });
-
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
@@ -41,6 +36,7 @@ module.exports = function (eleventyConfig) {
     linkify: true,
     typographer: false,
   }).use(hashtag);
+  
   eleventyConfig.setLibrary('md', markdownLibrary);
 
   return {

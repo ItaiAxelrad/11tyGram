@@ -5,13 +5,14 @@ permalink: index.html
 ---
 
 <header>
-  <img src="/images/avatar.jpg" class="avatar">
+  <img src="/images/avatar.jpg" class="avatar" alt="avatar">
     <div>
       <div class="user">
         <h1 class="user-name">{{- profile.username }}</h1><a href="/feed.xml" class="btn">Follow</a>
       </div>
       <nav>
-        <a href="/"><strong>{{ media.photos | length }}</strong> posts</a>
+        <a href="/"><strong>{{ media.photos | length }}</strong> photos</a>
+        <a href="/videos"><strong>{{ media.videos | length }}</strong> videos</a>
         <a href="/followers/page-1"><strong>{{ connections.followers | length }}</strong> followers</a>
         <a href="/following/page-1"><strong>{{ connections.following | length }}</strong> following</a>
       </nav>
@@ -23,19 +24,6 @@ permalink: index.html
 </header>
 
 <article class="posts">
-
-  {# video posts #}
-  {%- for video in media.videos %}
-    <a href="/videos/{{ loop.index }}/" class="post-link">
-      <video preload="metadata" height="100%" class="thumbnail">
-          <source src="/{{ video.path }}" type="video/webm">
-          Sorry, your browser doesn't support embedded videos.
-      </video>
-      <div class="overlay">
-        <div class="overlay-text">{{ video.taken_at | readableDate }}</div>
-      </div>
-    </a>
-  {%- endfor %}
 
   {# photo posts #}
   {%- for photo in media.photos %}

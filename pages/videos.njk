@@ -1,56 +1,41 @@
 ---
-title: Videos
+title: Home
 layout: base.njk
-permalink: /videos/{{ pagination.pageNumber + 1 }}/index.html
-pagination:
-  data: media.videos
-  size: 1
-  alias: videos
+permalink: /videos/index.html
 ---
 
-  {%- for item in pagination.items %}
-    <div class="post">
+<header>
+  <img src="/images/avatar.jpg" class="avatar" alt="avatar">
+    <div>
+      <div class="user">
+        <h1 class="user-name">{{- profile.username }}</h1><a href="/feed.xml" class="btn">Follow</a>
+      </div>
+      <nav>
+        <a href="/"><strong>{{ media.photos | length }}</strong> photos</a>
+        <a href="/videos"><strong>{{ media.videos | length }}</strong> videos</a>
+        <a href="/followers/page-1"><strong>{{ connections.followers | length }}</strong> followers</a>
+        <a href="/following/page-1"><strong>{{ connections.following | length }}</strong> following</a>
+      </nav>
+      <p><strong>{{- profile.name }}</strong><br>
+      {{ profile.biography }}<br>
+      <a href="{{ profile.website | url }}">{{ profile.website }}</a>
+      </p>
+    </div>
+</header>
 
-      <video controls preload="metadata" width="100%" class="video">
-          <source src="/{{ item.path }}" type="video/webm">
+<article class="posts">
+
+  {# video posts #}
+  {%- for video in media.videos %}
+    <a href="/videos/{{ loop.index }}/" class="post-link">
+      <video preload="metadata" height="100%" class="thumbnail">
+          <source src="/{{ video.path }}" type="video/webm">
           Sorry, your browser doesn't support embedded videos.
       </video>
-
-      <div class="post-info">
-        <div class="user-info">
-        <img src="/images/avatar.jpg" class="avatar-small">
-          <div>
-          <strong>{{- profile.username }}</strong> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a>
-            <br><small>{% if item.location %}{{ item.location }}{% endif %}</small>
-          </div> 
-        </div>
-        <div class="caption">
-          <p>{{ item.caption }}</p>
-          <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
-        </div>
-        <div class="media">
-          <a href="/likes/page-1"><strong>{{ likes.media_likes | length }}</strong> likes</a>
-          <a href="/comments/page-1"><strong>{{ comments.media_comments | length }}</strong> comments</a> 
-        </div>
+      <div class="overlay">
+        <div class="overlay-text">{{ video.taken_at | readableDate }}</div>
       </div>
-    </div>
+    </a>
   {%- endfor %}
 
-
-<nav class="postNav">
-  <div class="previous-page">
-    {%- if pagination.href.previous %}
-      <a href="{{ pagination.href.previous }}">
-       &larr; Previous Post</a>
-    {%- else %}
-      <a href="/">&larr; Go Back</a>
-    {%- endif %}
-  </div>
-  <div class="next-page">
-    {%- if pagination.href.next %}
-      <a href="{{ pagination.href.next }}">Next Post &rarr;
-  </a>
-      {%- else %}
-      {%- endif %}
-    </div>
-  </nav>
+</article>
