@@ -16,6 +16,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('photos');
   eleventyConfig.addPassthroughCopy('videos');
   eleventyConfig.addPassthroughCopy('direct');
+  eleventyConfig.addPassthroughCopy('admin');
 
   // parse datetime to readable
   eleventyConfig.addFilter('readableDate', (dateObj) => {

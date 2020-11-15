@@ -311,7 +311,7 @@ form {
   border-block-start: 1px solid var(--gray);
 }
 
-input[type="text"] {
+input {
   border: none;
   width: 100%;
   outline: none;
