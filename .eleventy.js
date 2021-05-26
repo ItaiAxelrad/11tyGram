@@ -46,10 +46,11 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',
 
-    // These are all optional, defaults are shown:
+    // directory configs:
     dir: {
       input: '.',
-      includes: '_includes',
+      includes: 'components',
+      layouts: 'layouts',
       data: 'JSON',
       output: '_site',
     },

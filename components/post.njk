@@ -1,0 +1,8 @@
+<a href="/posts/{{ loop.index }}/" class="post-link">
+    <img src="{{ photo.path }}" loading="lazy" class="thumbnail" alt="{{ photo.caption | truncate(20, true, "") }}">
+    <div class="overlay">
+      <div class="overlay-text">
+        {{ photo.taken_at | readableDate }}
+      </div>
+    </div>
+</a>

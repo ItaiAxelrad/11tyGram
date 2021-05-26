@@ -1,0 +1,18 @@
+<header>
+  <img src="/images/avatar.jpg" class="avatar" alt="avatar">
+    <div>
+      <div class="user">
+        <h1 class="user-name">{{- profile.username }}</h1><a href="/feed.xml" class="btn">Follow</a>
+      </div>
+      <nav>
+        <a href="/"><strong>{{ media.photos | length }}</strong> photos</a>
+        <a href="/videos"><strong>{{ media.videos | length }}</strong> videos</a>
+        <a href="/followers/page-1"><strong>{{ connections.followers | length }}</strong> followers</a>
+        <a href="/following/page-1"><strong>{{ connections.following | length }}</strong> following</a>
+      </nav>
+      <p><strong>{{- profile.name }}</strong><br>
+      {{ profile.biography }}<br>
+      <a href="{{ profile.website | url }}">{{ profile.website }}</a>
+      </p>
+    </div>
+</header>

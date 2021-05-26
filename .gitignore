@@ -1,6 +1,12 @@
 # 11ty
 _site
 
+# instagram
+json
+photos
+videos
+direct
+
 # Logs
 logs
 *.log
