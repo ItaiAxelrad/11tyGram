@@ -1,5 +1,7 @@
 # 11tyGram
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4c7435c2-7294-4245-9baf-d78a2563db80/deploy-status)](https://app.netlify.com/sites/11tygram/deploys)
+
 Turn your Instagram data into a static site with [11ty](https://www.11ty.dev/)!
 
 ## Download Your Data
