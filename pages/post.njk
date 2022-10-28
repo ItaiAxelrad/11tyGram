@@ -1,0 +1,18 @@
+---
+title: Pages
+layout: base.njk
+permalink: /posts/{{ pagination.pageNumber + 1 }}/index.html
+pagination:
+  data: media.photos
+  size: 1
+  alias: photos
+---
+
+{%- for item in pagination.items %}
+  <div class="post">
+    <img src="/{{ item.path }}" loading="lazy" class="image" alt="{{ item.caption | truncate(20, true, "") }}">
+    {% include 'postInfo.njk' %}
+  </div>
+{%- endfor %}
+
+{% include 'pageNav.njk' %}

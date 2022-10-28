@@ -3,11 +3,8 @@ title: Home
 layout: base.njk
 permalink: index.html
 ---
-
 {% include 'header.njk' %}
-
 <div class="posts">
-  {# photo posts #}
   {%- for photo in media.photos %}
     {% include 'post.njk' %}
   {%- endfor %}

@@ -1,0 +1,18 @@
+<div class="post-info">
+  <div class="user-info">
+    <img src={{ profile.profile_pic_url }} class="avatar-small">
+    <div>
+      <strong>{{- profile.username }}</strong> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a><br>
+      <small>{% if item.location %}{{ item.location }}{% endif %}</small>
+    </div> 
+  </div>
+  <div class="caption">
+    <p>{{ item.caption }}</p>
+    <time datetime="{{ item.taken_at | htmlDateString }}">{{ item.taken_at | readableDate }}</time>
+  </div>
+  <div class="media">
+    <a href="/likes/page-1"><strong>{{ likes.media_likes | length }}</strong> likes</a>
+    <a href="/comments/page-1"><strong>{{ comments.media_comments | length }}</strong> comments</a> 
+  </div>
+  {% include 'contact.njk' %}
+</div>

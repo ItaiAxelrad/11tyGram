@@ -9,6 +9,8 @@ pagination:
   alias: comments
 ---
 
+{% include 'contact.njk' %}
+
 <div class="{{ title | lower }}">
 {%- for comment in comments %}
   <div class="comment">
@@ -19,20 +21,4 @@ pagination:
 {%- endfor %}
 </div>
 
-<nav class="pageNav">
-  <div class="previous-page">
-    {%- if pagination.href.previous %}
-      <a href="{{ pagination.href.previous }}">
-       &larr; Previous Page</a>
-    {%- else %}
-      <a href="/">&larr; Go Back</a>
-    {%- endif %}
-  </div>
-  <div class="next-page">
-    {%- if pagination.href.next %}
-      <a href="{{ pagination.href.next }}">Next Page &rarr;
-  </a>
-      {%- else %}
-      {%- endif %}
-    </div>
-  </nav>
+{% include 'pageNav.njk' %}

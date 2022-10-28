@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-/>
+      content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content="{{ profile.biography }}">
     <meta
       name="keywords"
-      content="Itai, Eden, Axelrad, Climbing, Bouldering, California, Colorado, blog, post, twins"
-/>
+      content="11ty, Netlify, CMS, instagram, photos, static, site, JAMstack" />
     <meta name="theme-color" content="#fafafa"/>
     <!-- iOS PWA -->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -21,24 +19,12 @@
     <!-- Style -->
     <link href="/images/instagram.svg" rel="icon" type="image/png"/>
     <link href="/styles/main.css" rel="stylesheet" type="text/css"/>
-
   </head>
   <body>
-  <nav class="banner">
-  <div class="banner-links">
-  <a href="/" class="logo">11tyGram</a>
-  <a href="https://github.com/ItaiAxelrad/11tyGram">GitHub <img src="/images/github.svg" class="icon" alt="GitHub Logo">
-  </a>
-  </div>
-  </nav>
-
+    {% include 'topNav.njk' %}
     <main>
       {{ content | safe }}
     </main>
-
-    <footer>
-      <small>&copy; 11tyGram</small>
-    </footer>
-
+    {% include 'footer.njk' %}
   </body>
 </html>
