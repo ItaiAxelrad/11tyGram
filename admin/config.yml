@@ -31,8 +31,8 @@ collections:
   - label: 'Media' # Used in the UI
     name: 'media' # Used in routes, e.g., /admin/collections/blog
     files:
-      - label: "Photos"
-        name: "photos"
+      - label: "Media"
+        name: "media"
         file: 'JSON/media.json' # The path to the folder where the documents are stored
         fields:
           - label: Photos
