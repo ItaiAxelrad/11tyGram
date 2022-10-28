@@ -14,23 +14,20 @@ collections:
     files:
       - label: "Profile"
         name: "profile"
+        widget: "object"
         file: 'JSON/profile.json' # The path to the folder where the documents are stored
         fields:
-          - label: Profile
-            name: profile
-            allow_add: true
-            fields: # The fields for each document, usually in front matter
-            - { label: 'Biography', name: 'biography', widget: 'markdown' }
-            - {
-                label: 'Date Joined',
-                name: 'date_joined',
-                widget: 'datetime',
-                default: Created,
-              }
-            - { label: 'Website', name: 'website', widget: 'string' }
-            - { label: 'Name', name: 'name', widget: 'string' }
-            - { label: 'Profile Picture', name: 'profile_pic_url', widget: 'image' }
-            - { label: 'Username', name: 'username', widget: 'string' }
+          - { label: 'Biography', name: 'biography', widget: 'markdown' }
+          - {
+              label: 'Date Joined',
+              name: 'date_joined',
+              widget: 'datetime',
+              default: Created,
+            }
+          - { label: 'Website', name: 'website', widget: 'string' }
+          - { label: 'Name', name: 'name', widget: 'string' }
+          - { label: 'Profile Picture', name: 'profile_pic_url', widget: 'image' }
+          - { label: 'Username', name: 'username', widget: 'string' }
   - label: 'Media' # Used in the UI
     name: 'media' # Used in routes, e.g., /admin/collections/blog
     files:
