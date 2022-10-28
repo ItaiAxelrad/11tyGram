@@ -49,10 +49,6 @@ collections:
               }
             - { label: 'Location', name: 'location', widget: 'string' }
             - { label: 'Path', name: 'media', widget: 'image' }
-      - label: "Videos"
-        name: "videos"
-        file: 'JSON/media.json' # The path to the folder where the documents are stored
-        fields:
           - label: Videos
             name: videos
             widget: list
