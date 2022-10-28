@@ -9,6 +9,28 @@ publish_mode: editorial_workflow # enable drafts
 show_preview_links: true # show post / page live preview 
 media_folder: 'images' # Media files will be stored in the repo under images/uploads
 collections:
+  - label: 'Profile' # Used in the UI
+    name: 'profile' # Used in routes, e.g., /admin/collections/blog
+    files:
+      - label: "Profile"
+        name: "profile"
+        file: 'JSON/profile.json' # The path to the folder where the documents are stored
+        fields:
+          - label: Profile
+            name: profile
+            allow_add: true
+            fields: # The fields for each document, usually in front matter
+            - { label: 'Biography', name: 'biography', widget: 'markdown' }
+            - {
+                label: 'Date Joined',
+                name: 'date_joined',
+                widget: 'datetime',
+                default: Created,
+              }
+            - { label: 'Website', name: 'website', widget: 'string' }
+            - { label: 'Name', name: 'name', widget: 'string' }
+            - { label: 'Profile Picture', name: 'profile_pic_url', widget: 'image' }
+            - { label: 'Username', name: 'username', widget: 'string' }
   - label: 'Media' # Used in the UI
     name: 'media' # Used in routes, e.g., /admin/collections/blog
     files:
@@ -18,6 +40,24 @@ collections:
         fields:
           - label: Photos
             name: photos
+            widget: list
+            allow_add: true
+            fields: # The fields for each document, usually in front matter
+            - { label: 'Caption', name: 'caption', widget: 'markdown' }
+            - {
+                label: 'Taken At',
+                name: 'taken_at',
+                widget: 'datetime',
+                default: Created,
+              }
+            - { label: 'Location', name: 'location', widget: 'string' }
+            - { label: 'Path', name: 'media', widget: 'image' }
+      - label: "Videos"
+        name: "videos"
+        file: 'JSON/media.json' # The path to the folder where the documents are stored
+        fields:
+          - label: Videos
+            name: videos
             widget: list
             allow_add: true
             fields: # The fields for each document, usually in front matter

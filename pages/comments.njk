@@ -8,9 +8,9 @@ pagination:
   size: 50
   alias: comments
 ---
-
-{% include 'contact.njk' %}
-
+<div class="form-container">
+  {% include 'contact.njk' %}
+</div>
 <div class="{{ title | lower }}">
 {%- for comment in comments %}
   <div class="comment">

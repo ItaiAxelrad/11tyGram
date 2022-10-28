@@ -13,8 +13,10 @@ pagination:
   <ul class="{{ title | lower }}">
   {%- for like in likes %}
     <li class="like">
-      <small>♥ @{{ like[1] }} liked a post on
-      <br/><time datetime="{{ like[0] | htmlDateString }}">{{ like[0] | readableDate}}</time>
+      <small>
+        <span style="color: crimson;">♥</span>
+        <b class="color">@{{ like[1] }}</b> liked a post on<br/>
+        <time datetime="{{ like[0] | htmlDateString }}">{{ like[0] | readableDate}}</time>
       </small>
     </li>
   {%- endfor %}
