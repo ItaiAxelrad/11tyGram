@@ -7,15 +7,13 @@ pagination:
   size: 1
   alias: videos
 ---
-
 {%- for item in pagination.items %}
   <div class="post">
-    <video controls preload="metadata" width="100%" class="video">
+    <video controls playsinline preload="metadata" width="100%" class="video">
         <source src="/{{ item.path }}" type="video/webm">
         Sorry, your browser doesn't support embedded videos.
     </video>
     {% include 'postInfo.njk' %}
   </div>
 {%- endfor %}
-
 {% include 'pageNav.njk' %}

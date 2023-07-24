@@ -2,7 +2,7 @@
   <div class="user-info">
     <img src={{ profile.profile_pic_url }} class="avatar-small">
     <div>
-      <strong>{{- profile.username }}</strong> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a><br>
+      <a href="/" class="btn-link"><strong>{{- profile.username }}</strong></a> &nbsp; &bull; &nbsp; <a href="/feed.xml" class="rss">Follow</a><br>
       <small>{% if item.location %}{{ item.location }}{% endif %}</small>
     </div> 
   </div>

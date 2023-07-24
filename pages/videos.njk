@@ -3,13 +3,11 @@ title: Home
 layout: base.njk
 permalink: /videos/index.html
 ---
-
 {% include 'header.njk' %}
-
-<article class="posts">
+<div class="posts">
   {%- for video in media.videos %}
     <a href="/videos/{{ loop.index }}/" class="post-link">
-      <video preload="metadata" height="100%" class="thumbnail">
+      <video preload="metadata" height="100%" class="thumbnail" playsinline>
           <source src="/{{ video.path }}" type="video/webm">
           Sorry, your browser doesn't support embedded videos.
       </video>
@@ -18,5 +16,4 @@ permalink: /videos/index.html
       </div>
     </a>
   {%- endfor %}
-
-</article>
+</div>

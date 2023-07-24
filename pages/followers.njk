@@ -8,7 +8,7 @@ pagination:
   size: 120
   alias: followers
 ---
-
+{% include 'header.njk' %}
 <div id="{{ title | lower }}" class="col-container">
   <ul class="{{ title | lower }}">
   {%- for follower in followers %}
@@ -18,5 +18,4 @@ pagination:
   {% endfor -%}
   </ul>
 </div>
-
 {% include 'pageNav.njk' %}

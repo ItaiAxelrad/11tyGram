@@ -12,19 +12,19 @@
     "debug": "DEBUG=* npx @11ty/eleventy",
     "update": "npm i -g npm-check-updates && ncu -u && npm install && npm audit fix"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git://github.com/ItaiAxelrad/11tyGram.git"
   },
   "keywords": [],
-  "author": { 
+  "author": {
     "name": "Itai Axelrad",
     "url": "https://itaiaxelrad.com/"
   },
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "luxon": "^3.0.4"
+    "luxon": "^3.3.0"
   }
 }

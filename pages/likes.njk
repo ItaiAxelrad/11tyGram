@@ -8,7 +8,6 @@ pagination:
   size: 120
   alias: likes
 ---
-
 <div class="{{ title | lower }}" class="col-container">
   <ul class="{{ title | lower }}">
   {%- for like in likes %}
@@ -22,5 +21,4 @@ pagination:
   {%- endfor %}
   </ul>
 </div>
-
 {% include 'pageNav.njk' %}

@@ -116,7 +116,7 @@ li {
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(calc(300px - 1.5rem), 1fr));
   grid-template-rows: auto;
-  justify-content: center; 
+  justify-content: center;
   margin-top: 2rem;
 }
 
@@ -289,6 +289,11 @@ video {
   border-radius: 4px;
   margin: 0 2rem;
   padding: 5px 9px;
+}
+
+.btn-link {
+  color: inherit;
+  display: inline-block;
 }
 
 .logo {
