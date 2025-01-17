@@ -23,8 +23,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "luxon": "^3.3.0"
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.3",
+    "luxon": "^3.5.0"
   }
 }

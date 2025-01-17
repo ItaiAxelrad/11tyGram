@@ -1,8 +1,8 @@
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const { DateTime } = require('luxon');
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import { DateTime } from 'luxon';
 
-module.exports = function (eleventyConfig) {
-
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
+export default async function (eleventyConfig) {
   // add plugin
   eleventyConfig.addPlugin(pluginRss);
 
@@ -25,20 +25,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromISO(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
+}
 
-  return {
-    templateFormats: ['md', 'njk', 'html', 'liquid'],
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
-
-    // directory configs:
-    dir: {
-      input: '.',
-      includes: 'components',
-      layouts: 'layouts',
-      data: 'JSON',
-      output: '_site',
-    },
-  };
+export const config = {
+  templateFormats: ['md', 'njk', 'html', 'liquid'],
+  markdownTemplateEngine: 'njk',
+  htmlTemplateEngine: 'njk',
+  dataTemplateEngine: 'njk',
+  dir: {
+    input: '.',
+    includes: 'components',
+    layouts: 'layouts',
+    data: 'JSON',
+    output: '_site',
+  },
 };
