@@ -33,10 +33,8 @@ export const config = {
   htmlTemplateEngine: 'njk',
   dataTemplateEngine: 'njk',
   dir: {
-    input: '.',
     includes: 'components',
     layouts: 'layouts',
     data: 'JSON',
-    output: '_site',
   },
 };
