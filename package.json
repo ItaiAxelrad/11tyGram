@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A static site for your photo memories",
   "main": "index.html",
+  "type": "module",
   "scripts": {
     "build": "npx @11ty/eleventy",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
@@ -16,7 +17,15 @@
     "type": "git",
     "url": "git://github.com/ItaiAxelrad/11tyGram.git"
   },
-  "keywords": [],
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "static",
+    "site",
+    "photo",
+    "instagram",
+    "clone"
+  ],
   "author": {
     "name": "Itai Axelrad",
     "url": "https://itaiaxelrad.com/"
